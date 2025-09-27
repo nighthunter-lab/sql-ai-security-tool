@@ -16,7 +16,7 @@ from pathlib import Path
 from datetime import datetime
 import xml.etree.ElementTree as ET
 
-BASE = Path(__file__).resolve().parents[1]  # points to core_sql/
+BASE = Path(__file__).resolve().parent  # points to core_sql/
 PAYLOAD_DIR = BASE / "payloads"
 OUT_FILE = BASE / "payloads_catalog.json"
 
