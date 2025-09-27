@@ -6,3 +6,4 @@ def exploit(url, param):
         "tables": ["users", "orders"],
         "sample_data": {"users": [{"id": 1, "username": "admin"}]}
     }
+hellow
